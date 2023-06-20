@@ -38,7 +38,7 @@ def update(request, id):
     update_diary.save()
     return redirect('diary')
 
-def delete(request, id):
+def delete(id):
     delete_diary = get_object_or_404(DiaryNotForm, id = id)
     delete_diary.delete()
     return redirect('diary')
