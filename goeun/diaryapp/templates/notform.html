@@ -17,7 +17,7 @@
     {% for reviews in reviews.all %}
     
         <h3><a href="{% url 'detail' reviews.id %}">{{ reviews.title }}</a></h3>
-        <p>날짜 및 시간: {{ reviews.pub_date }}</p>
+        <p>날짜 및 시간 : {{ reviews.pub_date }}</p>
         <p>날씨: {{ reviews.weather }}</p>
         <p>일기: {{ reviews.content }}</p>
         {% if reviews.phto %}
