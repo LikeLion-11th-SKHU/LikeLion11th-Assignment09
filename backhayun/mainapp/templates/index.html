@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}
+        <title>Index</title>
+    {% endblock %}
+</head>
+<body>
+    {% block content %}
+    <nav>
+        <a href="{% url 'notform' %}">diarys</a>
+        <a href="{% url 'useform' %}">journals</a>
+    </nav>
+
+    <footer>
+        <span>글쓴이 : 백하윤</span> <br>
+        <span>이메일 : backhay0714@naver.com</span>
+    </footer>
+    {% endblock %}
+</body>
+</html>

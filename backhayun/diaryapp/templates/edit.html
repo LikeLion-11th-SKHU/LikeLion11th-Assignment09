@@ -1,0 +1,21 @@
+{% extends 'index.html' %}
+
+{% block title %}
+    <title>Edit</title>
+{% endblock %}
+
+{% block content %}
+    <h1>Edit Page</h1>
+    <hr>
+    <form method="POST" action="{% url 'update' edit_diary.id %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        제목 : <input type="text" name="title" value="{{ edit_diary.title }}"> <br>
+        날씨 : <input type="text" name="weather" value="{{ edit_diary.weather }}"> <br>
+        내용 : <textarea name="content" cols="30" rows="10">{{ edit_diary.content }}</textarea> <br>
+        <div>
+            사진 업로드 : <input type="file" name="file">
+        </div>
+        
+        <button type="submit">작성</button>
+    </form>
+{% endblock %}

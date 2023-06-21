@@ -1,0 +1,21 @@
+{% extends 'index.html' %}
+
+{% block title %}
+    <title>Detail</title>
+{% endblock %}
+
+{% block content %}
+    <h1>Detail Page2</h1>
+    <hr>
+    <p>{{ journal.title }}</p>
+    <p>{{ journal.pub_date }}</p>
+    <p>{{ journal.weather }}</p>
+    <p>{{ journal.content }}</p>
+    {% if journal.file %}
+        <img src="{{ journal.file.url }}" width="200" height="200" alt="file">
+    {% endif %}
+    <br>
+    <a href="{% url 'update' journal.id %}">글 수정하기</a>
+    <br>
+    <a href="{% url 'delete' journal.id %}">글 삭제하기</a>
+{% endblock %}
