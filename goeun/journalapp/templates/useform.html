@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>useform</title>
+</head>
+<body>
+    <nav>
+        <a href="{% url 'index' %}">index</a>
+        <a href="{% url 'write' %}">일기 작성하기</a>
+    </nav>
+    <h1>journal Page</h1>
+    <hr>
+    <br><br>
+    {% for reviews in reviews.all %}
+    
+        <h3><a href="{% url 'detail02' reviews.id %}">{{ reviews.title }}</a></h3>
+        <p>날짜 및 시간: {{ reviews.pub_date }}</p>
+        <p>날씨: {{ reviews.weather }}</p>
+        <p>일기: {{ reviews.content }}</p>
+        {% if reviews.picture %}
+        <img src="{{ reviews.picture.url }}" width="200" height="200" alt="picture">
+        {% endif %}
+    {% endfor %}
+</body>
+</html>
