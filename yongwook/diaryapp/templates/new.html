@@ -1,0 +1,18 @@
+{% extends 'index.html' %}
+{% block title %}
+    <title>Create</title>
+{% endblock %}
+
+{% block content %}
+    <form method="POST" action="{% url 'create' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        제목 : <input type="text" name="title"> <br>
+        날씨 : <input type="text" name="weather"> <br>
+        내용 : <textarea name="content" cols="30" rows="10"></textarea>
+        <div>
+            파일 업로드 : <input type="file" name="file">
+        </div>
+
+        <button type="submit">리뷰 작성</button>
+    </form>   
+{% endblock %}
