@@ -1,13 +1,14 @@
 from django.db import models
+from django.utils import timezone
 
 # Create your models here.
-class DiaryNotForm(models.Model):
+
+class Diarynotform(models.Model):
     title = models.CharField(max_length=30)
-    pub_date = models.DateTimeField('data published')
+    pub_date = models.DateTimeField('date published')
     weather = models.CharField(max_length=20)
-    diary = models.TextField()
-    file = models.FileField(null=True)
+    body = models.TextField()
     image = models.ImageField(upload_to='photo/', blank=True)
 
     def __int__(self):
-        return self.diary
+        return self.title
