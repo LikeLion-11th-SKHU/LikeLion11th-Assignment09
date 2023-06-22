@@ -1,0 +1,21 @@
+{% extends 'index.html' %}
+
+{% block title %}
+    <title>Detail</title>
+{% endblock %}
+
+{% block content %}
+    <h1>diary_detail</h1>
+    <hr>
+    <p>제목 : {{ diary.title }}</p>
+    <p>작성날짜 : {{ diary.pub_date }}</p>
+    <p>날씨 : {{ diary.weather }}</p>
+    <p>일기 : {{ diary.content }}</p>
+    {% if diary.file %}
+        <img src="{{ diary.file.url }}" width="200" height="200" alt="file">
+    {% endif %}
+    <br>
+    <a href="{% url 'edit' diary.id %}">수정</a>
+    <br>
+    <a href="{% url 'delete' diary.id %}">삭제</a>
+{% endblock %}

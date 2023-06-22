@@ -1,0 +1,15 @@
+{% extends 'index.html' %}
+
+{% block title %}
+    <title>Update</title>
+{% endblock %}
+
+{% block content %}
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <table>
+            {{ form.as_table }}
+        </table>
+        <button type="submit">작성</button>
+    </form>
+{% endblock %}
