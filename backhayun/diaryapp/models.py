@@ -8,5 +8,5 @@ class DiaryNotForm(models.Model):
     content = models.TextField()
     file = models.FileField(upload_to='phto/', blank=True)
 
-    def __int__(self):
+    def __str__(self):
         return self.title
