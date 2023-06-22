@@ -1,0 +1,26 @@
+{% extends 'index.html' %}
+
+{% block title %}
+<title>Journal Read</title>
+{% endblock %}
+
+{% block content %}
+<nav>
+    <br>
+    <a href="{% url 'write' %}">Journal 작성하기</a>
+    <br>
+</nav>
+<br>
+<hr>
+{% for journals in journals.all %}
+<p><a href="{% url 'journal_detail' journals.id %}">제목: {{ journals.title }}</a></p>
+<p>날씨: {{ journals.weather }}</p>
+<p>일기: {{ journals.body }}</p>
+<p>작성날짜: {{ journals.pub_date }}</p>
+{% if journals.image %}
+<img src="{{ journals.image.url }}" width="400" height="400">
+{% endif %}
+<br>
+<hr>
+{% endfor %}
+{% endblock %}
