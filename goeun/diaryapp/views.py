@@ -34,7 +34,7 @@ def update(request,id):
     update_review.pub_date = timezone.now()
     update_review.weather = request.POST['weather']
     update_review.content = request.POST['content']
-    update_review.phto = request.FILES['phto']
+    update_review.phto = request.FILES.get('phto')
     update_review.save()
     return redirect('notform')
 
