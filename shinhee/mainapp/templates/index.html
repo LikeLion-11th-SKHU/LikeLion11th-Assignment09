@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}
+        <title>Index</title>
+    {% endblock %}
+</head>
+<body>
+    <nav>
+        <br>
+        <a href="{% url 'index' %}">Index</a>
+        <a href="{% url 'journal' %}">Journal</a>
+        <a href="{% url 'diary' %}">Diary</a>
+        <br><br><hr>
+    </nav>
+    {% block content %}
+        <h1>Index Page</h1>
+    {% endblock %}
+    <footer>
+        <div style="background-color:aliceblue; height: 100px; display: flex; align-items: center; justify-content: center;">
+            <h3 style="color: pink;">@신희's 일기장</h3>
+        </div>
+    </footer>
+</body>
+</html>
