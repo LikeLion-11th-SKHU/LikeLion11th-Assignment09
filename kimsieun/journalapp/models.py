@@ -6,7 +6,7 @@ class JournalUseForm(models.Model):
     content = models.TextField()
     weather = models.CharField(max_length=20)
     pub_date = models.DateTimeField('data published')
-    image = models.ImageField(upload_to='photo/', blank=True)
+    image = models.ImageField(upload_to='picture/', blank=True)
     
     def __int__(self):
         return self.content
