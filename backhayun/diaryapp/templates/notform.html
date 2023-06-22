@@ -1,0 +1,25 @@
+{% extends 'index.html' %}
+
+{% block title %}
+    <title>Read</title>
+{% endblock %}
+
+{% block content %}
+    <nav>
+        <a href="{% url 'index' %}">index로 돌아가기</a>
+        <a href="{%url 'new' %}">일기 작성하기</a>
+    </nav>
+
+    <br><br>
+
+    {% for diarys in diarys.all %}
+        <p><a href="{% url 'detail' diarys.id %}">제목 : {{ diarys.title }}</a></p>
+        <p>작성날짜 : {{ diarys.pub_date }}</p>
+        <p>날씨 : {{ diarys.weather }}</p>
+        <p>내용 : {{ diarys.content }}</p>
+        {% if diarys.file %}
+        <img src="{{ diarys.file.url }}" width="200" height="200" alt="file">
+        {% endif %}
+        <br><hr><br>
+    {% endfor %}
+{% endblock %}
