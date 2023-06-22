@@ -1,0 +1,21 @@
+{% extends 'index.html' %}
+
+{% block title %}
+    <title>Diary Create</title>
+{% endblock %}
+
+{% block content %}
+    <h1>Diary Create Page</h1>
+    <hr>
+    <form method="POST" action="{% url 'create' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        제목 : <input type="text" name="title"> <br>
+        날씨 : <input type="text" name="weather"> <br>
+        일기 : <textarea name="diary" cols="30" rows="10"></textarea> <br>
+        <div>
+            사진 업로드 : <input type="file" name="image">
+        </div>
+
+        <button type="submit">일기 작성</button>
+    </form>
+{% endblock %}
