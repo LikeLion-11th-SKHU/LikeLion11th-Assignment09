@@ -1,0 +1,26 @@
+{% extends 'index.html' %}
+
+{% block title %}
+<title>Diary content</title>
+{% endblock %}
+
+{% block content %}
+    <nav>
+        <br><a href="{% url 'new' %}">일기쓰기</a>
+    </nav>
+
+
+    {% for diaries in diaries.all %}
+    <p><a href="{% url 'detail' diaries.id %}">제목 : {{ diaries.title }}</a></p>
+    <p>날씨 : {{ diaries.weather }}</p>
+    <p>일기 : {{ diaries.content }} </p>
+    <p>날짜 : {{ diaries.pub_date }}</p>
+
+    {% if diaries.image %}
+    <img src="{{ diaries.image.url }}" alt="iamge" width="200" height="200">
+    {% endif %}
+
+    {% endfor %}
+
+
+{% endblock %}
