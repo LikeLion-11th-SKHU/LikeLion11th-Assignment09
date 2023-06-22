@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.utils import timezone
 from .models import DiaryNotForm
 
@@ -19,7 +19,7 @@ def create(request):
 
 def notform(request):
     diarys = DiaryNotForm.objects.all()
-    return render(request, 'notform.html', {'diary' : diarys})
+    return render(request, 'notform.html', {'diarys' : diarys}) 
 
 def edit(request, id):
     edit_diary = DiaryNotForm.objects.get(id = id)

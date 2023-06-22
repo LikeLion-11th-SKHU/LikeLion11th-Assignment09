@@ -7,11 +7,11 @@
     <title>Edit</title>
 </head>
 <body>
-    <form method="POST" action = "{% url 'update' edit_diary.id %}" enctype="multipart/form-data">
+    <form method="POST" action = "{% url 'update' edit_journals.id %}" enctype="multipart/form-data">
         {% csrf_token %}
-        제목 : <input type="text" name = "title" value = "{{ edit_diary.title }}"><br>
-        날씨 : <input type="text" name = "weather" value = "{{ edit_diary.weather }}"><br>
-        일기 : <textarea name = "content" cols="30" rows = "10" value = "{{ edit_diary.content }}"></textarea> <br>
+        제목 : <input type="text" name = "title" value = "{{ edit_journals.title }}"><br>
+        날씨 : <input type="text" name = "weather" value = "{{ edit_journals.weather }}"><br>
+        일기 : <textarea name = "content" cols="30" rows = "10" value = "{{ edit_journals.content }}"></textarea> <br>
         <div>
             파일 업로드 : <input type="file" name = "file"><br>
             이미지 업로드 : <input type="file" name = "image"><br>

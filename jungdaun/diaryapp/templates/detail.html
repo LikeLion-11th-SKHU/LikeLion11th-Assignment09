@@ -1,35 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% extends 'notform.html' %}
+
+{% block title %}
     <title>Detail</title>
-</head>
-<body>
-    <nav>
-        <a href="{% url 'index' %}">index로 돌아가기</a>
-        <a href="{% url 'new' %}">일기 작성하기</a>
-        <a href="{% url 'notform' %}">일기 모아보기</a>
-    </nav>
+{% endblock title %}
 
-    <br><br>
-    {% for diarys in diarys.all %}
-        <p>제목 : {{ diarys.title }}</p>
-        <p>날짜 및 시간 : {{ diarys.date }}</p>
-        <p>날씨 : {{ diarys.weather }}</p>
-        <p>일기 : {{ diarys.content }}</p>
-        {% if diarys.file %}
-            <img src="{{diarys.file.url}}" width="200" height = "200" alt = "file">
-        {% endif %}
-        {% if diarys.image %}
-            <img src="{{diarys.image.url}}" width="200" height = "200" alt = "image">
-        {% endif %}
-
-    <br><hr><br>
-    <a href="{% url 'edit' diary.id %}">글 수정하기</a>
+{% block content %}
+    <p>{{ diarys.title }}</p>
+    <p>{{ diarys.date }}</p>
+    <p>{{ diarys.weather }}</p>
+    <p>{{ diarys.content }}</p>
+    <p>{{ diarys.file }}</p>
+    <p>{{ diarys.image }}</p>
     <br>
-    <a href="{% url 'delete' diary.id %}">글 삭제하기</a>
-    {% endfor %}
-</body>
-</html>
+    <a href="{% url 'edit' diarys.id %}">글 수정하기</a>
+    <br>
+    <a href="{% url 'delete' diarys.id %}">글 삭제하기</a>
+{% endblock %}

@@ -14,19 +14,18 @@
     </nav>
 
     <br><br>
-    {% for diarys in diarys.all %}
-        <p>제목 : {{ diarys.title }}</p>
-        <p>날짜 및 시간 : {{ diarys.date }}</p>
-        <p>날씨 : {{ diarys.weather }}</p>
-        <p>일기 : {{ diarys.content }}</p>
+    {% for diarys in diarys %}
+        <p>제목: {{ diarys.title }}</p>
+        <p>날짜 및 시간: {{ diarys.date }}</p>
+        <p>날씨: {{ diarys.weather }}</p>
+        <p>일기: {{ diarys.content }}</p>
         {% if diarys.file %}
-            <img src="{{diarys.file.url}}" width="200" height = "200" alt = "file">
+            <img src="{{ diarys.file.url }}" width="200" height="200" alt="file">
         {% endif %}
         {% if diarys.image %}
-            <img src="{{diarys.image.url}}" width="200" height = "200" alt = "image">
+            <img src="{{ diarys.image.url }}" width="200" height="200" alt="image">
         {% endif %}
-
-    <br><hr><br>
+        <br><hr><br>
     {% endfor %}
 </body>
 </html>
