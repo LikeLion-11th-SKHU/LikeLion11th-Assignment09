@@ -30,11 +30,14 @@ urlpatterns = [
     path('diary/', include('diaryapp.urls')),
     path('journal/', include('journalapp.urls')),
     
+    path('detail/<str:id>/', diaryapp_views.detail, name='detail'),
+    path('detail/<str:id>/', journalapp_views.detail, name='detail'),
+    
     path('edit/<str:id>/', diaryapp_views.edit, name='edit'),
     path('update/<str:id>/', diaryapp_views.update, name='update'),
     path('delete/<str:id>/', diaryapp_views.delete, name='delete'),
     
     path('edit/<str:id>/', journalapp_views.edit, name='edit'),
     path('update/<str:id>/', journalapp_views.update, name='update'),
-    path('delete/<str:id>/', journalapp_views.delete, name='delete'),
+    path('delete/<str:id>/', journalapp_views.delete, name='delete')
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

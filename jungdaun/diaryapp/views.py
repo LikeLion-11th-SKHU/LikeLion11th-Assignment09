@@ -40,3 +40,7 @@ def delete(request, id):
     delete_diary = get_object_or_404(DiaryNotForm, id = id)
     delete_diary.delete()
     return redirect('notform')
+
+def detail(request, id):
+    diarys = get_object_or_404(DiaryNotForm, id = id)
+    return render(request, 'detail.html', {'diarys' : diarys})

@@ -16,6 +16,7 @@
     <br><br>
 
     {% for journals in journals.all %}
+    <h3><a href="{% url 'detail' journals.id %}">{{ journals.title }}</a></h3>
         <p>제목 : {{ journals.title }}</p>
         <p>날짜 및 시간 : {{ journals.date }}</p>
         <p>날씨 : {{ journals.weather }}</p>

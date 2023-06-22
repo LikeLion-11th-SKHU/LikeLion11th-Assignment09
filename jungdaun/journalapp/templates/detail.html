@@ -12,7 +12,7 @@
     <p>{{ journals.file }}</p>
     <p>{{ journals.image }}</p>
     <br>
-    <a href="{% url 'edit' journals.id %}">글 수정하기</a>
+    <a href="{% url 'update' journals.id %}">글 수정하기</a>
     <br>
     <a href="{% url 'delete' journals.id %}">글 삭제하기</a>
 {% endblock %}

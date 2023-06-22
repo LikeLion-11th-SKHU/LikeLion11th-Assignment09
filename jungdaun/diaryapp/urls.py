@@ -7,5 +7,6 @@ urlpatterns = [
     path('new/', diaryapp_views.new, name = 'new'),
     path('new/create/', diaryapp_views.create, name = 'create'),
     path('notform/', diaryapp_views.notform, name='notform'),
+
 ]
 
