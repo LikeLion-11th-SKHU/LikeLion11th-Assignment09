@@ -6,7 +6,7 @@ class ReviewUseForm(models.Model):
     pub_date = models.DateTimeField('data published')
     weather = models.CharField(max_length=20)
     content = models.TextField()
-    picture = models.FileField(upload_to='picture/',blank=True)
+    picture = models.ImageField(upload_to='picture/', blank=True)
 
     def __int__(self):
         return self.title

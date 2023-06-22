@@ -1,20 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% extends 'index.html' %}
+
+{% block title %}
     <title>Create</title>
-</head>
-<body>
+{% endblock %}
+
+{% block content %}
     <form method="POST" action="{% url 'create' %}" enctype="multipart/form-data">
         {% csrf_token %}
-        제목: <input type="text" name="title"> <br>
-        날씨: <input type="text" name="weather"> <br>
+        제목: <input type="text" name="title" maxlength="30"> <br>
+        날씨: <input type="text" name="weather" maxlength="20"> <br>
         일기: <textarea name="content" cols="30" rows="10"></textarea>
         <div>
             사진 업로드: <input type="file" name="phto">
         </div>
         <button type="submit">일기 작성 완료</button>
     </form>
-</body>
-</html>
+{% endblock %}

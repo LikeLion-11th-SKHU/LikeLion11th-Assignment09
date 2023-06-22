@@ -18,8 +18,28 @@ def create(request):
 
 def notform(request):
     reviews = ReviewNotForm.objects
-    return render(request, 'notform.html',{'reviews':reviews})
+    return render(request, 'notform.html',{'reviews': reviews})
 
 def detail(request,id):
     review = get_object_or_404(ReviewNotForm, id=id)
     return render(request,'detail.html',{'review': review})
+
+def edit(request,id):
+    edit_review = ReviewNotForm.objects.get(id = id)
+    return render(request, 'edit.html', {'edit_review': edit_review})
+
+def update(request,id):
+    update_review = ReviewNotForm.objects.get(id=id)
+    update_review.title = request.POST['title']
+    update_review.pub_date = timezone.now()
+    update_review.weather = request.POST['weather']
+    update_review.content = request.POST['content']
+    update_review.phto = request.FILES['phto']
+    update_review.save()
+    return redirect('notform')
+
+def delete(request,id):
+    delete_review = get_object_or_404(ReviewNotForm,id=id)
+    delete_review.delete()
+    return redirect('notform')
+   

@@ -1,15 +1,17 @@
 {% extends 'index.html' %}
 
 {% block title %}
-    <title>Write</title>
+    <title>Update</title>
 {% endblock %}
 
 {% block content %}
+    <h1>Update Page</h1>
+    <hr>
     <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
-        <table>
+       <table>
             {{ form.as_table }}
-        </table>
+       </table>
         <button type="submit">일기 작성 완료</button>
     </form>
 {% endblock %}

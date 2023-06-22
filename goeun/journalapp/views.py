@@ -23,3 +23,21 @@ def useform(request):
 def detail02(request,id):
     review = get_object_or_404(ReviewUseForm, id=id)
     return render(request,'detail02.html',{'review':review})
+
+def update02(request, id) :
+    review = get_object_or_404(ReviewUseForm, id= id)
+    if request.method == 'POST':
+        form = ReviewForm(request.POST,request.FILES,instance= review)
+        if form.is_valid():
+            form = form.save(commit=False)
+            form.pub_date = timezone.now()
+            form.save()
+            return redirect('useform')
+    else:
+        form = ReviewForm(instance=review)
+        return render(request, 'update02.html',{'form':form})
+
+def delete02(request, id):
+    reviw = get_object_or_404(ReviewUseForm,id=id)
+    reviw.delete()
+    return redirect('useform')

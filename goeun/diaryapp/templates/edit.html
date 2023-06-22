@@ -1,0 +1,20 @@
+{% extends 'index.html' %}
+
+{% block title %}
+    <title>Edit</title>
+{% endblock %}
+
+{% block content %}
+    <h1>Edit Page</h1>
+    <hr>
+    <form method="POST" action="{% url 'update' edit_review.id %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        제목: <input type="text" name="title" maxlength="30" value="{{edit_review.title}}"> <br>
+        날씨: <input type="text" name="weather" maxlength="20" value="{{ediit_review.weather}}"> <br>
+        일기: <textarea name="content" cols="30" rows="10">{{ ediit_review.weather }}</textarea>
+        <div>
+            사진 업로드: <input type="file" name="phto" value="{{ediit_review.phto}}">
+        </div>
+        <button type="submit">일기 작성 완료</button>
+    </form>
+{% endblock %}

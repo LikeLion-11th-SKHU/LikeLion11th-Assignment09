@@ -1,21 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Read</title>
-</head>
-<body>
-    <nav>
-        <a href="{% url 'index' %}">index</a>
-        <a href="{% url 'new' %}">일기 작성하기!</a>
-    </nav>
+{% extends 'index.html' %}
 
-    <br><br>
+{% block title %}
+    <title>Read</title>
+{% endblock %}
+
+{% block content %}  
+<nav>
+    <a href="{% url 'index' %}">index</a>
+    <a href="{% url 'write' %}">일기 작성하기</a>
+</nav>
+<hr>
     <h1>diary Page</h1>
     <hr>
-    {% for reviews in reviews.all %}
-    
+    {% for reviews in reviews.all %}  
         <h3><a href="{% url 'detail' reviews.id %}">{{ reviews.title }}</a></h3>
         <p>날짜 및 시간 : {{ reviews.pub_date }}</p>
         <p>날씨 : {{ reviews.weather }}</p>
@@ -24,5 +21,4 @@
         <img src="{{ reviews.phto.url }}" width="200" height="200" alt="phto">
         {% endif %}
     {% endfor %}
-</body>
-</html>
+{% endblock %}
