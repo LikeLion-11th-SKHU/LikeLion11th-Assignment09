@@ -1,0 +1,21 @@
+{% extends 'index.html' %}
+
+{% block title %}
+<title>Journal Detail</title>
+{% endblock %}
+
+{% block content %}
+<h1>Detail Page</h1>
+<hr>
+<h3>제목: {{ journal.title }}</h3>
+<p>날씨: {{ journal.weather }}</p>
+<p>일기: {{ journal.body }}</p>
+<p>작성날짜: {{ journal.pub_date }}</p>
+{% if journal.image %}
+<img src="{{ journal.image.url }}" width="400" height="400">
+{% endif %}
+<br>
+<a href="{% url 'journal_update' journal.id %}">수정</a>
+<br>
+<a href="{% url 'journal_delete' journal.id %}">삭제</a>
+{% endblock %}

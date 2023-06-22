@@ -1,0 +1,17 @@
+{% extends 'index.html' %}
+
+{% block title %}
+<title>update</title>
+{% endblock %}
+
+{% block content %}
+<h1>edit page</h1>
+<form action="{% url 'update' diary.id %}" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <p>제목: <input type="text" name="title" value="{{ diary.title }}"></p>
+    <p>날씨: <input type="text" name="weather" value="{{ diary.weather }}"></p>
+    <p>내용: <input type="text" name="body" value="{{ diary.body }}"></p>
+    <p>사진: <input type="file" name="image"></p>
+    <input type="submit" value="수정하기">
+</form>
+{% endblock %}
