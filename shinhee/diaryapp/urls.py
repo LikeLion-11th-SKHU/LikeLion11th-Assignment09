@@ -4,9 +4,9 @@ import diaryapp.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('new/', diaryapp.views.new, name = 'new'),
+    path('new/', diaryapp.views.new, name='new'),
     path('new/create/', diaryapp.views.create, name='create'),
-    path('diary/', diaryapp.views.create, name='diary'),
+    path('diary/', diaryapp.views.diary, name='diary'),
     path('detail/<str:id>/', diaryapp.views.detail, name='detail'),
 
     path('edit/<str:id>/', diaryapp.views.edit, name='edit'),

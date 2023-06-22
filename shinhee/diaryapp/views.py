@@ -1,6 +1,6 @@
-from datetime import timezone
-from django.shortcuts import redirect, render, get_object_or_404
-from diaryapp.models import DiaryNotForm
+from django.shortcuts import render, redirect, get_object_or_404
+from django.utils import timezone
+from .models import DiaryNotForm
 
 # Create your views here.
 def new(request):
@@ -8,17 +8,17 @@ def new(request):
 
 def create(request):
     diary = DiaryNotForm()
+    diary.diary = request.POST['diary']
     diary.title = request.POST['title']
     diary.pub_date = timezone.now()
     diary.weather = request.POST['weather']
-    diary.diary = request.POST['diary']
-    diary.image = request.FILES['image']
+    diary.file = request.FILES['file']
     diary.save()
     return redirect('diary')
 
 def diary(request):
     diaries = DiaryNotForm.objects
-    return render(request, 'diary.html', {'diaries':diaries})
+    return render(request, 'diary.html', {'diaries' : diaries})
 
 def detail(request, id):
     diary = get_object_or_404(DiaryNotForm, id=id)
@@ -34,7 +34,7 @@ def update(request, id):
     update_diary.pub_date = timezone.now()
     update_diary.diary = request.POST['diary']
     update_diary.weather = request.POST['weather']
-    update_diary.image = request.FILES['image']
+    update_diary.file = request.FILES.get['file']
     update_diary.save()
     return redirect('diary')
 

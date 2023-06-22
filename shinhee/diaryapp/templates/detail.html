@@ -11,8 +11,8 @@
     <p>날씨: {{ diary.weather }}</p>
     <p>일기: {{ diary.diary }}</p>
     <p>작성날짜: {{ diary.pub_date }}</p>
-    {% if diary.image %}
-        <img src="{{ diary.image.url }}" width="200" height="200" alt="image">
+    {% if diary.file %}
+        <img src="{{ diary.file.url }}" width="200" height="200" alt="file">
     {% endif %}
     <br>
     <a href="{% url 'edit' diary.id %}">수정하기</a>

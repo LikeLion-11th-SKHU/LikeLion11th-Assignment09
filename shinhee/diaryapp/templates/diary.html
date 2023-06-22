@@ -7,7 +7,7 @@
 {% block content %}
     <nav>
         <br>
-        <a href="{% url 'new' %}">일기 작성하기</a>
+        <a href="{% url 'new' %}">Diary 작성하기</a>
         <br>
     </nav>
 
@@ -18,8 +18,8 @@
         <p>날씨: {{ diaries.weather }}</p>
         <p>일기: {{ diaries.diary }}</p>
         <p>작성날짜: {{ diaries.pub_date }}</p>
-        {% if diaries.image %}
-        <img src="{{ diaries.image.url }}" width="200" height="200" alt="image">
+        {% if diaries.file %}
+        <img src="{{ diaries.file.url }}" width="200" height="200" alt="file">
         {% endif %}
         <br><hr><br>
     {% endfor %}
