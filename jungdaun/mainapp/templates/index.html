@@ -3,16 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Index</title>
+    {% block title %}
+        <title>Index</title>
+    {% endblock %}
 </head>
 <body>
+    {% block content %}
     <nav>
         <a href="{% url 'index' %}">index</a>
-        <a href="{% url 'notform' %}">diary</a>
-        <a href="{% url 'useform' %}">journal</a>
+        <a href="{% url 'notform' %}">diarys</a>
+        <a href="{% url 'useform' %}">journals</a>
     </nav>
     <footer>
-        <p>footer</p>
+        <p>정다운</p>
     </footer>
+    {% endblock %}
 </body>
 </html>

@@ -1,10 +1,12 @@
 from django.contrib import admin
 from django.urls import path
-from journalapp import views as journalapp_views
+import journalapp.views
 
 urlpatterns = [
-    path('custom-admin/', admin.site.urls, name='custom-admin'),
-    path('write/', journalapp_views.write, name = 'write'),
-    path('write/create/', journalapp_views.create, name = 'create'),
-    path('useform/', journalapp_views.useform, name = 'useform'),
+    path('admin/', admin.site.urls),
+    path('write/', journalapp.views.write, name = 'write'),
+    path('useform/', journalapp.views.useform, name = 'useform'),
+    path('detail1/<str:id>/', journalapp.views.detail1, name='detail1'),
+    path('update/<str:id>/', journalapp.views.update, name='update'),
+    path('delete/<str:id>/', journalapp.views.delete, name='delete'),
 ] 

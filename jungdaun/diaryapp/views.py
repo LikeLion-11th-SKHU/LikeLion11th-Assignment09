@@ -19,14 +19,14 @@ def create(request):
 
 def notform(request):
     diarys = DiaryNotForm.objects.all()
-    return render(request, 'notform.html', {'diarys' : diarys}) 
+    return render(request, 'notform.html', {'diarys': diarys})
 
 def edit(request, id):
-    edit_diary = DiaryNotForm.objects.get(id = id)
+    edit_diary = get_object_or_404(DiaryNotForm, id=id)
     return render(request, 'edit.html', {'edit_diary': edit_diary})
 
 def update(request, id):
-    update_diary = DiaryNotForm.objects.get(id = id)
+    update_diary = get_object_or_404(DiaryNotForm, id=id)
     update_diary.title = request.POST['title']
     update_diary.date = timezone.now()
     update_diary.weather = request.POST['weather']
@@ -37,9 +37,10 @@ def update(request, id):
     return redirect('notform')
 
 def delete(request, id):
-    delete_diary = get_object_or_404(DiaryNotForm, id = id)
+    delete_diary = get_object_or_404(DiaryNotForm, id=id)
     delete_diary.delete()
     return redirect('notform')
+
 
 def detail(request, id):
     diarys = get_object_or_404(DiaryNotForm, id = id)

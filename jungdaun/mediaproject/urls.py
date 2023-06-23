@@ -20,24 +20,12 @@ from django.conf.urls import include
 import mainapp.views
 from django.conf import settings
 from django.conf.urls.static import static
-from diaryapp import views as diaryapp_views
-from journalapp import views as journalapp_views
+
 
 urlpatterns = [
-    path('admin/', admin.site.urls, name='admin'),
+    path('admin/', admin.site.urls),
     path('', mainapp.views.index, name='index'),
     
-    path('diary/', include('diaryapp.urls')),
-    path('journal/', include('journalapp.urls')),
-    
-    path('detail/<str:id>/', diaryapp_views.detail, name='detail'),
-    path('detail/<str:id>/', journalapp_views.detail, name='detail'),
-    
-    path('edit/<str:id>/', diaryapp_views.edit, name='edit'),
-    path('update/<str:id>/', diaryapp_views.update, name='update'),
-    path('delete/<str:id>/', diaryapp_views.delete, name='delete'),
-    
-    path('edit/<str:id>/', journalapp_views.edit, name='edit'),
-    path('update/<str:id>/', journalapp_views.update, name='update'),
-    path('delete/<str:id>/', journalapp_views.delete, name='delete')
+    path('', include('diaryapp.urls')),
+    path('', include('journalapp.urls')),
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

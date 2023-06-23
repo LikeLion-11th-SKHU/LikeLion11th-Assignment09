@@ -1,17 +1,22 @@
-{% extends 'notform.html' %}
+{% extends 'index.html' %}
 
 {% block title %}
-    <title>Detail</title>
+    <title>detail</title>
 {% endblock title %} 
 
 {% block content %}
-    <h1>Detail Page</h1>
+    <h1>detail page</h1>
+    <hr>
     <p>{{ diarys.title }}</p>
     <p>{{ diarys.date }}</p>
     <p>{{ diarys.weather }}</p>
     <p>{{ diarys.content }}</p>
-    <p>{{ diarys.file }}</p>
-    <p>{{ diarys.image }}</p>
+    {% if diarys.file %}
+        <img src="{{ diarys.file.url }}" width="200" height="200" alt="file">
+    {% endif %}
+    {% if diarys.image %}
+        <img src="{{ diarys.image.url }}" width="200" height="200" alt="image">
+    {% endif %}
     <br>
     <a href="{% url 'edit' diarys.id %}">글 수정하기</a>
     <br>

@@ -1,12 +1,16 @@
 from django.contrib import admin
 from django.urls import path
-from diaryapp import views as diaryapp_views
+import diaryapp.views
 
 urlpatterns = [
-    path('admin/', admin.site.urls, name='admin'),
-    path('new/', diaryapp_views.new, name = 'new'),
-    path('new/create/', diaryapp_views.create, name = 'create'),
-    path('notform/', diaryapp_views.notform, name='notform'),
-
+    path('admin/', admin.site.urls),
+    path('new/', diaryapp.views.new, name='new'),
+    path('new/create/', diaryapp.views.create, name='create'),
+    path('notform/', diaryapp.views.notform, name='notform'),
+    path('detail/<str:id>/', diaryapp.views.detail, name='detail'),
+    path('edit/<str:id>/', diaryapp.views.edit, name='edit'),
+    path('update/<str:id>/', diaryapp.views.update, name='update'),
+    path('delete/<str:id>/', diaryapp.views.delete, name='delete'),
 ]
+
 
