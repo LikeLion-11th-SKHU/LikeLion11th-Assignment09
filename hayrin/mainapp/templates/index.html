@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}
+        <title>Index</title>
+    {% endblock %}
+</head>
+<body>
+    {% block content %}
+    <nav>
+        <a href="{% url 'notform' %}">diarys</a>
+        <a href="{% url 'useform' %}">journals</a>
+        <a href="{% url 'index' %}">index</a>
+    </nav>
+
+    <footer>
+        <h3 style="color: rgb(255, 151, 71);">rin's diary</h3> <br>
+    </footer>
+    {% endblock %}
+</body>
+</html>
