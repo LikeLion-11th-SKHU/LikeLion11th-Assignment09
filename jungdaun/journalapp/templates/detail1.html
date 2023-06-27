@@ -5,22 +5,23 @@
 {% endblock title %}
 
 {% block content %}
-    <h1>detail page</h1>
-    <p>{{ journals.title }}</p>
-    <p>{{ journals.date }}</p>
-    <p>{{ journals.weather }}</p>
-    <p>{{ journals.content }}</p>
-    <p>{{ journals.file }}</p>
-    <p>{{ journals.image }}</p>
+    <h1>Detail page</h1>
+    <hr>
+    <p>{{ journal.title }}</p>
+    <p>{{ journal.pub_date }}</p>
+    <p>{{ journal.weather }}</p>
+    <p>{{ journal.content }}</p>
+    <p>{{ journal.file }}</p>
+    <p>{{ journal.image }}</p>
     <br>
-    {% if journals.file %}
-        <img src="{{ journals.file.url }}" width="200" height="200" alt="file">
+    {% if journal.file %}
+        <img src="{{ journal.file.url }}" width="200" height="200" alt="file">
     {% endif %}
-    {% if journals.image %}
-        <img src="{{ journals.image.url }}" width="200" height="200" alt="image">
+    {% if journal.image %}
+        <img src="{{ journal.image.url }}" width="200" height="200" alt="image">
     {% endif %}
     <br>
-    <a href="{% url 'update' journals.id %}">글 수정하기</a>
+    <a href="{% url 'update1' journal.id %}">글 수정하기</a>
     <br>
-    <a href="{% url 'delete' journals.id %}">글 삭제하기</a>
+    <a href="{% url 'delete1' journal.id %}">글 삭제하기</a>
 {% endblock %} 

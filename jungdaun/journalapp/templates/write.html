@@ -6,13 +6,10 @@
 
 {% block content %}
     <form method="POST" enctype="multipart/form-data">
-        제목 : <input type="text" name = "title"><br>
-        날씨 : <input type="text" name = "weather"><br>
-        일기 : <textarea name = "content" cols="30" rows = "10"></textarea> <br>
-        <div>
-            파일 업로드 : <input type="file" name = "file"><br>
-            이미지 업로드 : <input type="file" name = "image"><br>
-        </div>
+        {% csrf_token %}
+        <table>
+            {{ form.as_table }}
+        </table>
         <button type = "submit">작성</button>
     </form>
 {% endblock %}
