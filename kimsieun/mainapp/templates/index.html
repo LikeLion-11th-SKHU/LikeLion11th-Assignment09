@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}
+    <title>Index</title>
+    {% endblock %}
+</head>
+
+<body>
+    <nav>
+        <br>
+        <a href="{% url 'index' %}">Index</a>
+        <a href="{% url 'journal' %}">journals</a>
+        <a href="{% url 'diary' %}">diarys</a>
+        <br>
+    </nav>
+    {% block content %}
+    <title>Index Page</title>
+    {% endblock %}
+
+    <footer>
+        <h4>일기앱</h4>
+    </footer>
+</body>
+</html>

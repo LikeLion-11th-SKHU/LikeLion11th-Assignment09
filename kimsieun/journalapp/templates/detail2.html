@@ -1,0 +1,22 @@
+{% extends 'index.html' %}
+
+{% block title %}
+<title>Diary Detail</title>
+{% endblock %}
+
+{% block content %}
+    <h1>일기 전체보기</h1>
+    <hr>
+    <h2>제목 : {{ journal.title }}</h2>
+    <p>날씨 : {{ journal.weather }}</p>
+    <p>일기 : {{ journal.content }} </p>
+    <p>날짜 : {{ journal.pub_date }}</p>
+
+    {% if journal.image %}
+    <img src="{{ journal.image.url }}" alt="image" width="200" height="200">
+    {% endif %}
+
+    <br> <a href="{% url 'update2' journal.id %}">수정하기</a>
+    <br> <a href="{% url 'delete2' journal.id %}">삭제하기</a>
+
+{% endblock %}
