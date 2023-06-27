@@ -37,7 +37,7 @@ def update2(request, id):
         form = JournalForm(instance=journal)
         return render(request, 'update2.html', {'form' : form})
     
-def delete2(id):
+def delete2(request, id):
     journal = get_object_or_404(JournalUseForm, id = id)
     journal.delete()
     return redirect('journal')

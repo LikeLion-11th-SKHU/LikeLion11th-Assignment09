@@ -7,9 +7,9 @@ urlpatterns = [
     path('new/', diaryapp.views.new, name='new'),
     path('new/create/', diaryapp.views.create, name='create'),
     path('diary/', diaryapp.views.diary, name='diary'),
-    path('detail/<str:id>/', diaryapp.views.detail, name='detail'),
+    path('detail/<int:id>/', diaryapp.views.detail, name='detail'),
 
-    path('edit/<str:id>/', diaryapp.views.edit, name='edit'),
-    path('update/<str:id>/', diaryapp.views.update, name='update'),
-    path('delete/<str:id>/', diaryapp.views.delete, name='delete')
+    path('edit/<int:id>/', diaryapp.views.edit, name='edit'),
+    path('update/<int:id>/', diaryapp.views.update, name='update'),
+    path('delete/<int:id>/', diaryapp.views.delete, name='delete')
 ]

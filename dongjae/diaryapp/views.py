@@ -34,11 +34,12 @@ def update(request, id):
     update_diary.pub_date = timezone.now()
     update_diary.diary = request.POST['diary']
     update_diary.weather = request.POST['weather']
-    update_diary.image = request.FILES['image']
+    if 'image' in request.FILES:
+        update_diary.image = request.FILES['image']
     update_diary.save()
     return redirect('diary')
 
-def delete(id):
+def delete(request, id):
     delete_diary = get_object_or_404(DiaryNotForm, id = id)
     delete_diary.delete()
     return redirect('diary')
