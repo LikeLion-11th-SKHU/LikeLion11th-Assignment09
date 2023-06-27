@@ -1,0 +1,20 @@
+{% extends 'index.html' %}
+
+{% block title %}
+    <title>Journal</title>
+{% endblock %}
+
+{% block content %}
+    <h1>Detail Page</h1>
+    <hr>
+    <h3>제목:{{ review.title }}</h3>
+    <p>날짜: {{ review.pub_date }}</p>
+    <p>날씨: {{ review.weather }}<p>
+    <p>일기: {{ review.content }}</p>
+    {% if review.picture %}
+    <img src="{{ review.picture.url }}" width="200" height="200" alt="picture">
+    {% endif %}
+    <br>
+    <a href="{% url 'update2' review.id %}">글 수정하기</a>
+    <a href="{% url 'delete2' review.id %}">글 삭제하기</a>
+{% endblock %}
