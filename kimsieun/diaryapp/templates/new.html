@@ -9,8 +9,8 @@
     <hr>
     <form method="POST" action="{% url 'create' %}" enctype="multipart/form-data">
         {% csrf_token %}
-        제목 : <input type="text" name="title"> <br>
-        날씨 : <input type="text" name="weather"> <br>
+        제목 : <input type="text" name="title" maxlength="30"> <br>
+        날씨 : <input type="text" name="weather" maxlength="20"> <br>
         일기 : <textarea name="content" cols="30" rows="10"></textarea> <br>
         <div>
             이미지(파일) 업로드 : <input type="file" name="image">
